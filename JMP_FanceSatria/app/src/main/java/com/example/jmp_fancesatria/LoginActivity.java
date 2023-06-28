@@ -17,10 +17,17 @@ public class LoginActivity extends AppCompatActivity {
         bind = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(bind.getRoot());
 
+        load();
+
         bind.btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+//                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+//                finish();
+                Intent i = new Intent(LoginActivity.this, IntentActivity.class);
+                i.putExtra("email", bind.username.getText().toString());
+                startActivity(i);
+
                 finish();
             }
         });
@@ -33,6 +40,12 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void load(){
+        bind.username.setText(getIntent().getStringExtra("email"));
+        bind.password.setText(getIntent().getStringExtra("password"));
+    }
+
 
 
 }

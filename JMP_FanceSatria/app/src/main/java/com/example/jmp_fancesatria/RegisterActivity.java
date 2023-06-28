@@ -20,7 +20,13 @@ public class RegisterActivity extends AppCompatActivity {
         bind.signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+//                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+//                finish();
+
+                Intent i = new Intent(RegisterActivity.this, LoginActivity.class);
+                i.putExtra("email", bind.email.getText().toString());
+                i.putExtra("password", bind.password.getText().toString());
+                startActivity(i);
                 finish();
             }
         });
@@ -30,6 +36,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                 finish();
+
             }
         });
     }
