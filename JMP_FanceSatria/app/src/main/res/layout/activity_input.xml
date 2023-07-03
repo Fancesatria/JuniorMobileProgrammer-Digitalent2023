@@ -10,17 +10,17 @@
     <EditText
         android:id="@+id/name"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:hint="Enter your name"
-        android:inputType="phone"
+        android:inputType="text"
         android:textColor="@color/color1" />
 
     <EditText
         android:id="@+id/email"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:hint="Enter your Email"
-        android:inputType="phone"
+        android:inputType="text"
         android:textColor="@color/color1"
         android:layout_marginBottom="5dp"/>
 
