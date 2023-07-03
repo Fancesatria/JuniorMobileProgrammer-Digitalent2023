@@ -22,7 +22,6 @@ public class IntentActivity extends AppCompatActivity {
         bind = ActivityIntentBinding.inflate(getLayoutInflater());
         setContentView(bind.getRoot());
 
-        bind.email.setText("Your Email : "+getIntent().getStringExtra("email"));
 
         bind.btnDial.setOnClickListener(new View.OnClickListener() {
             @Override

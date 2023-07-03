@@ -24,7 +24,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
 //                startActivity(new Intent(LoginActivity.this, MainActivity.class));
 //                finish();
-                Intent i = new Intent(LoginActivity.this, IntentActivity.class);
+                Intent i = new Intent(LoginActivity.this, MainActivity2.class);
                 i.putExtra("email", bind.username.getText().toString());
                 startActivity(i);
 
