@@ -34,22 +34,47 @@ public class MainActivity extends AppCompatActivity {
         adapter = new NotesAdapter(MainActivity.this, data);
         bind.rv.setAdapter(adapter);
         addNote();
+        readFile();
 
         ActivityCompat.requestPermissions(MainActivity.this,
                 new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+
+
+        bind.clearAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteFile();
+            }
+        });
     }
 
     public void addNote(){
         bind.addNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                createFile();
+                if(bind.description.getText().toString().isEmpty()){
+                    Toast.makeText(MainActivity.this, "Cannot add empty data", Toast.LENGTH_SHORT).show();
+                } else {
+                    createFile();
+                }
             }
         });
     }
 
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        readFile();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        readFile();
+    }
+
     public void createFile(){
-        String isiNote = bind.description.getText().toString();
+        String isiNote = bind.description.getText().toString()+"\n";
         String state = Environment.getExternalStorageState();
         Log.d("ExternalActivity", "Location : " + Environment.getExternalStorageDirectory());
         Log.d("ExternalActivity", isiNote);
@@ -68,9 +93,10 @@ public class MainActivity extends AppCompatActivity {
             outputStream.flush();
             outputStream.close();
 
-            data.add(isiNote);
-            bind.rv.getAdapter().notifyItemInserted(data.size());
-            bind.rv.smoothScrollToPosition(data.size());
+            readFile();
+
+//            data.clear();
+//            data.add(isiNote);
 
             Toast.makeText(this, "Data added succesfully", Toast.LENGTH_SHORT).show();
             bind.description.setText("");
@@ -85,7 +111,8 @@ public class MainActivity extends AppCompatActivity {
         File file = new File(sdcard, FILE_NAME);// mencari file berdasarkan nama file yang sudah disimpan sebelumnya
 
         if(file.exists()){//jika file tersebut ada
-            StringBuilder text = new StringBuilder();
+            //StringBuilder text = new StringBuilder();
+            List<String> lines = new ArrayList<>();
 
             try{
                 BufferedReader br = new BufferedReader(new FileReader(file));
@@ -93,12 +120,10 @@ public class MainActivity extends AppCompatActivity {
                 String line = br.readLine();
 
                 while(line != null){
-                    text.append(line+"\n");
+                    lines.add(line);
                     line = br.readLine();
 
-                    data.add(line);
-                    bind.rv.getAdapter().notifyItemInserted(data.indexOf(line));
-                    bind.rv.smoothScrollToPosition(data.indexOf(line));
+
                 }
                 br.close();
 
@@ -106,7 +131,9 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("Error", "readFile: "+e.getMessage());
             }
 
-            //bind.tvData.setText(text.toString());
+            data.clear();
+            data.addAll(lines);
+            bind.rv.getAdapter().notifyDataSetChanged();
         }
     }
 
@@ -115,10 +142,6 @@ public class MainActivity extends AppCompatActivity {
 
         if(file.exists()){
             file.delete();
-
-            readFile();
-
-            //bind.tvData.setText("data");
         }
     }
 }
