@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.jmp_fancesatria.CatatanHarian.CatatanHarianActivity;
+import com.example.jmp_fancesatria.InputNama.InputActivity;
+import com.example.jmp_fancesatria.Kalkulator.CalculatorActivity;
 import com.example.jmp_fancesatria.databinding.ActivityMain2Binding;
 
 public class MainActivity2 extends AppCompatActivity {
@@ -51,6 +54,13 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity2.this, InputActivity.class));
+            }
+        });
+
+        bind.notes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity2.this, CatatanHarianActivity.class));
             }
         });
     }

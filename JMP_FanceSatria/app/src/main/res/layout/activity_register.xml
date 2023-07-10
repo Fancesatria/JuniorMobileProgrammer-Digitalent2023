@@ -7,6 +7,15 @@
     android:orientation="vertical"
     tools:context=".RegisterActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:background="@color/color1"
+        android:minHeight="?attr/actionBarSize"
+        app:titleTextColor="@color/white"
+        style="@style/Widget.AppCompat.Toolbar"
+        android:layout_height="wrap_content"/>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -20,7 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="?attr/actionBarSize"
                 android:layout_marginEnd="3dp"
                 android:layout_marginBottom="8dp"
                 android:orientation="vertical"

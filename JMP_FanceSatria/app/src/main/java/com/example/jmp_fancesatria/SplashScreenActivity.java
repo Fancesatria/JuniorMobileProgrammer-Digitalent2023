@@ -4,12 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
+
+import java.io.File;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
@@ -26,8 +29,13 @@ public class SplashScreenActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashScreenActivity.this, LoginActivity.class));
-                finish();
+                if(cekLogin()){
+                    startActivity(new Intent(SplashScreenActivity.this, MainActivity2.class));
+                    finish();
+                } else{
+                    startActivity(new Intent(SplashScreenActivity.this, LoginActivity.class));
+                    finish();
+                }
 
             }
         }, SPLASH_SCREEN_TIMEOUT);
@@ -39,5 +47,15 @@ public class SplashScreenActivity extends AppCompatActivity {
         ImageView image=findViewById(R.id.imageView2);
 
         image.setAnimation(fadeOut);
+    }
+
+
+    public boolean cekLogin(){
+        File file = new File(Environment.getExternalStorageDirectory(), Global.FILE_NAME);
+        if(file.exists()){
+            return true;
+        } else {
+            return false;
+        }
     }
 }

@@ -7,7 +7,7 @@
     android:layout_margin="10dp"
     android:padding="10dp"
     android:orientation="vertical"
-    tools:context=".InputResultActivity">
+    tools:context=".InputNama.InputResultActivity">
 
     <TextView
         android:id="@+id/name"

@@ -1,4 +1,4 @@
-package com.example.jmp_fancesatria;
+package com.example.jmp_fancesatria.Kalkulator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
