@@ -53,4 +53,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Catatan Harian"/>
+
+    <Button
+        android:id="@+id/sqlite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SQLite"/>
 </LinearLayout>
