@@ -9,6 +9,7 @@ import android.view.View;
 import com.example.jmp_fancesatria.CatatanHarian.CatatanHarianActivity;
 import com.example.jmp_fancesatria.InputNama.InputActivity;
 import com.example.jmp_fancesatria.Kalkulator.CalculatorActivity;
+import com.example.jmp_fancesatria.TugasAPI.APIActivityActivity;
 import com.example.jmp_fancesatria.TugasSQLite.SQLiteActivity;
 import com.example.jmp_fancesatria.databinding.ActivityMain2Binding;
 
@@ -69,6 +70,13 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity2.this, SQLiteActivity.class));
+            }
+        });
+
+        bind.api.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity2.this, APIActivityActivity.class));
             }
         });
     }

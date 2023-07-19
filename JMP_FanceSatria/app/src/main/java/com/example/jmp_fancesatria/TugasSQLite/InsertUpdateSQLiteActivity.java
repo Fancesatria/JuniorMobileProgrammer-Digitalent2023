@@ -53,7 +53,7 @@ public class InsertUpdateSQLiteActivity extends AppCompatActivity {
 
     public boolean cekIntent(){
         if(getIntent().getIntExtra("editFlag", 0) == 1){
-            bind.textView.setText("Ubah Data Barang");
+            bind.textView.setText("Ubah Data Item");
             bind.btnsimpan.setText("Simpan Perubahan");
 
             idbarang = getIntent().getIntExtra("id", 0);
