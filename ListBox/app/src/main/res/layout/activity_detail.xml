@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="8dp"
+    android:padding="8dp"
+    tools:context=".DetailActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/color1"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Detail Data Mahasiswa" />
+
+
+    <EditText
+        android:id="@+id/etNama"
+        android:layout_width="match_parent"
+        android:layout_margin="8dp"
+        android:enabled="false"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:hint="Nama"
+        android:inputType="textPersonName"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="Jenis Kelamin"
+        android:textSize="14sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp">
+
+        <RadioButton
+            android:id="@+id/laki"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
+            android:enabled="false"
+            android:text="Laki-Laki"/>
+
+        <RadioButton
+            android:id="@+id/perempuan"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:enabled="false"
+            android:text="perempuan"/>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/etAsal"
+        android:layout_width="match_parent"
+        android:layout_margin="8dp"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:enabled="false"
+        android:hint="Asal"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/etAlamat"
+        android:layout_margin="8dp"
+        android:layout_width="match_parent"
+        android:hint="Alamat"
+        android:layout_height="wrap_content"
+        android:gravity="top|left"
+        android:padding="5dp"
+        android:singleLine="false"
+        android:enabled="false" />
+
+
+    <EditText
+        android:id="@+id/etPendidikanTerakhir"
+        android:layout_width="match_parent"
+        android:layout_margin="8dp"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:enabled="false"
+        android:hint="Pendidikan Terakhir}"
+        android:inputType="text"/>
+
+</LinearLayout>
